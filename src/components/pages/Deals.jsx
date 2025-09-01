@@ -336,8 +336,8 @@ const Deals = () => {
               type="select"
               value={formData.contactId}
               onChange={(e) => setFormData({ ...formData, contactId: e.target.value })}
-              required
-              options={contacts.map(contact => ({ value: contact.Id, label: contact.name }))}
+required
+              options={contacts.map(contact => ({ value: contact.Id, label: contact.name_c || contact.Name }))}
             />
           </div>
 

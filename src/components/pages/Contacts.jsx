@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Button from "@/components/atoms/Button";
-import SearchBar from "@/components/molecules/SearchBar";
-import Badge from "@/components/atoms/Badge";
-import Modal from "@/components/molecules/Modal";
-import FormField from "@/components/molecules/FormField";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
 import { format } from "date-fns";
-import contactService from "@/services/api/contactService";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import Select from "@/components/atoms/Select";
+import FormField from "@/components/molecules/FormField";
+import Modal from "@/components/molecules/Modal";
+import SearchBar from "@/components/molecules/SearchBar";
+import Activities from "@/components/pages/Activities";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
 import activityService from "@/services/api/activityService";
+import contactService from "@/services/api/contactService";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -310,18 +312,22 @@ const Contacts = () => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Activities</h3>
                   {activities.length === 0 ? (
                     <p className="text-gray-500 text-sm">No activities recorded for this contact.</p>
-                  ) : (
+) : (
                     <div className="space-y-3">
                       {activities.slice(0, 5).map(activity => (
                         <div key={activity.Id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                           <div className="w-8 h-8 bg-gradient-to-r from-primary-100 to-primary-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <ApperIcon name={getActivityIcon(activity.type)} className="h-4 w-4 text-primary-600" />
+                            <ApperIcon name={getActivityIcon(activity.type_c || activity.type || 'call')} className="h-4 w-4 text-primary-600" />
                           </div>
-                          <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-900">{activity.title}</p>
-                            <p className="text-sm text-gray-600">{activity.description}</p>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-900 truncate">
+                              {activity.title_c || activity.Name || activity.title}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              {activity.description_c || activity.description}
+                            </p>
                             <p className="text-xs text-gray-500 mt-1">
-                              {format(new Date(activity.date), "MMM d, yyyy 'at' h:mm a")}
+                              {format(new Date(activity.date_c || activity.CreatedOn || activity.date), "MMM d, yyyy 'at' h:mm a")}
                             </p>
                           </div>
                         </div>

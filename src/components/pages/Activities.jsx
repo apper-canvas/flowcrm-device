@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import Modal from "@/components/molecules/Modal";
-import FormField from "@/components/molecules/FormField";
-import SearchBar from "@/components/molecules/SearchBar";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
 import { format } from "date-fns";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import FormField from "@/components/molecules/FormField";
+import Modal from "@/components/molecules/Modal";
+import SearchBar from "@/components/molecules/SearchBar";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
 import activityService from "@/services/api/activityService";
 import contactService from "@/services/api/contactService";
 import dealService from "@/services/api/dealService";
@@ -151,16 +151,16 @@ const openModal = (activity = null) => {
   };
 
   const getContactName = (contactId) => {
-    const contact = contacts.find(c => c.Id === contactId);
-    return contact ? contact.name : "Unknown Contact";
+const contact = contacts.find(c => c.Id === contactId);
+    return contact ? (contact.name_c || contact.Name) : "Unknown Contact";
   };
 
-  const getDealTitle = (dealId) => {
+const getDealTitle = (dealId) => {
     const deal = deals.find(d => d.Id === dealId);
-    return deal ? deal.title : null;
+    return deal ? (deal.title_c || deal.Name) : "Unknown Deal";
   };
 
-  const getActivityTypeConfig = (type) => {
+const getActivityTypeConfig = (type) => {
     return activityTypes.find(t => t.value === type) || activityTypes[0];
   };
 
@@ -353,7 +353,7 @@ const openModal = (activity = null) => {
               value={formData.contactId}
               onChange={(e) => setFormData({ ...formData, contactId: e.target.value })}
               required
-              options={contacts.map(contact => ({ value: contact.Id, label: contact.name }))}
+options={contacts.map(contact => ({ value: contact.Id, label: contact.name_c || contact.Name }))}
             />
           </div>
 
@@ -381,7 +381,7 @@ const openModal = (activity = null) => {
               type="select"
               value={formData.dealId}
               onChange={(e) => setFormData({ ...formData, dealId: e.target.value })}
-              options={deals.map(deal => ({ value: deal.Id, label: deal.title }))}
+options={deals.map(deal => ({ value: deal.Id, label: deal.title_c || deal.Name }))}
               placeholder="Select a deal"
             />
             <FormField
