@@ -1,0 +1,72 @@
+[
+  {
+    "Id": 1,
+    "type": "call",
+    "title": "Follow-up Call",
+    "description": "Discussed implementation timeline and requirements with John",
+    "contactId": 1,
+    "dealId": 1,
+    "date": "2024-01-20T14:30:00Z",
+    "completed": true
+  },
+  {
+    "Id": 2,
+    "type": "email",
+    "title": "Proposal Sent",
+    "description": "Sent detailed proposal for software license to Sarah",
+    "contactId": 2,
+    "dealId": 2,
+    "date": "2024-01-21T10:15:00Z",
+    "completed": true
+  },
+  {
+    "Id": 3,
+    "type": "meeting",
+    "title": "Contract Negotiation",
+    "description": "In-person meeting to finalize contract terms",
+    "contactId": 3,
+    "dealId": 3,
+    "date": "2024-01-23T15:00:00Z",
+    "completed": true
+  },
+  {
+    "Id": 4,
+    "type": "call",
+    "title": "Discovery Call",
+    "description": "Initial call to understand StartupCo's needs",
+    "contactId": 4,
+    "dealId": 4,
+    "date": "2024-01-24T11:30:00Z",
+    "completed": true
+  },
+  {
+    "Id": 5,
+    "type": "meeting",
+    "title": "Project Kickoff",
+    "description": "Kickoff meeting for Enterprise Solutions consulting project",
+    "contactId": 5,
+    "dealId": 5,
+    "date": "2024-01-26T09:00:00Z",
+    "completed": true
+  },
+  {
+    "Id": 6,
+    "type": "call",
+    "title": "Check-in Call",
+    "description": "Scheduled call to check progress on TechCorp implementation",
+    "contactId": 1,
+    "dealId": 1,
+    "date": "2024-02-05T14:00:00Z",
+    "completed": false
+  },
+  {
+    "Id": 7,
+    "type": "email",
+    "title": "Contract Review",
+    "description": "Send contract revisions to InnovateTech",
+    "contactId": 2,
+    "dealId": 2,
+    "date": "2024-02-08T09:30:00Z",
+    "completed": false
+  }
+]

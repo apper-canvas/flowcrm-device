@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "name": "John Smith",
+    "email": "john.smith@techcorp.com",
+    "phone": "+1 (555) 123-4567",
+    "company": "TechCorp Solutions",
+    "tags": ["VIP", "Tech"],
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-20T14:45:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Sarah Johnson",
+    "email": "sarah.j@innovatetech.com",
+    "phone": "+1 (555) 234-5678",
+    "company": "InnovateTech",
+    "tags": ["Decision Maker", "Enterprise"],
+    "createdAt": "2024-01-18T09:15:00Z",
+    "updatedAt": "2024-01-22T11:30:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Mike Chen",
+    "email": "m.chen@globalsoft.com",
+    "phone": "+1 (555) 345-6789",
+    "company": "GlobalSoft Inc",
+    "tags": ["Tech", "Lead"],
+    "createdAt": "2024-01-20T16:20:00Z",
+    "updatedAt": "2024-01-25T13:10:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "Emily Davis",
+    "email": "emily.davis@startupco.com",
+    "phone": "+1 (555) 456-7890",
+    "company": "StartupCo",
+    "tags": ["Startup", "Hot Lead"],
+    "createdAt": "2024-01-22T08:45:00Z",
+    "updatedAt": "2024-01-26T10:20:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "Robert Wilson",
+    "email": "r.wilson@enterprise.com",
+    "phone": "+1 (555) 567-8901",
+    "company": "Enterprise Solutions",
+    "tags": ["Enterprise", "Long Term"],
+    "createdAt": "2024-01-25T14:30:00Z",
+    "updatedAt": "2024-01-28T16:45:00Z"
+  }
+]
