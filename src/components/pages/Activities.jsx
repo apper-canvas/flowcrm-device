@@ -28,7 +28,7 @@ const Activities = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("");
+const [filterType, setFilterType] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -66,7 +66,7 @@ const Activities = () => {
     loadData();
   }, []);
 
-  const handleFormSubmit = async (e) => {
+const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
       const activityData = {
@@ -89,7 +89,7 @@ const Activities = () => {
       setIsModalOpen(false);
       resetForm();
     } catch (err) {
-      toast.error("Failed to save activity. Please try again.");
+      toast.error(err.message || "Failed to save activity. Please try again.");
     }
   };
 
@@ -118,7 +118,7 @@ const Activities = () => {
     }
   };
 
-  const openModal = (activity = null) => {
+const openModal = (activity = null) => {
     if (activity) {
       setIsEditing(true);
       setSelectedActivity(activity);
@@ -126,7 +126,7 @@ const Activities = () => {
         type: activity.type,
         title: activity.title,
         description: activity.description,
-        contactId: activity.contactId.toString(),
+        contactId: activity.contactId ? activity.contactId.toString() : "",
         dealId: activity.dealId ? activity.dealId.toString() : "",
         date: activity.date ? activity.date.split("T")[0] : "",
         completed: activity.completed
