@@ -12,14 +12,13 @@ class ContactService {
     try {
       const params = {
         fields: [
-          {"field": {"Name": "Id"}},
+{"field": {"Name": "Id"}},
           {"field": {"Name": "Name"}},
-          {"field": {"Name": "name_c"}},
           {"field": {"Name": "email_c"}},
           {"field": {"Name": "phone_c"}},
           {"field": {"Name": "company_c"}},
-          {"field": {"Name": "tags_c"}},
-          {"field": {"Name": "created_at_c"}},
+{"field": {"Name": "company_c"}},
+          {"field": {"Name": "Tags"}},
           {"field": {"Name": "updated_at_c"}},
           {"field": {"Name": "Owner"}},
           {"field": {"Name": "CreatedOn"}},
@@ -38,12 +37,12 @@ class ContactService {
 
       // Transform data for UI compatibility
       return response.data.map(contact => ({
-        ...contact,
-        name: contact.name_c || contact.Name || '',
+...contact,
+        name: contact.Name || '',
         email: contact.email_c || '',
         phone: contact.phone_c || '',
         company: contact.company_c || '',
-        tags: contact.tags_c ? contact.tags_c.split(',').map(tag => tag.trim()) : [],
+tags: contact.Tags ? contact.Tags.split(',').map(tag => tag.trim()) : [],
         createdAt: contact.created_at_c || contact.CreatedOn || new Date().toISOString(),
         updatedAt: contact.updated_at_c || contact.ModifiedOn || new Date().toISOString()
       }));
@@ -57,14 +56,13 @@ class ContactService {
     try {
       const params = {
         fields: [
-          {"field": {"Name": "Id"}},
+{"field": {"Name": "Id"}},
           {"field": {"Name": "Name"}},
-          {"field": {"Name": "name_c"}},
           {"field": {"Name": "email_c"}},
           {"field": {"Name": "phone_c"}},
           {"field": {"Name": "company_c"}},
-          {"field": {"Name": "tags_c"}},
-          {"field": {"Name": "created_at_c"}},
+{"field": {"Name": "company_c"}},
+          {"field": {"Name": "Tags"}},
           {"field": {"Name": "updated_at_c"}}
         ]
       };
@@ -78,12 +76,12 @@ class ContactService {
       // Transform data for UI compatibility
       const contact = response.data;
       return {
-        ...contact,
-        name: contact.name_c || contact.Name || '',
+...contact,
+        name: contact.Name || '',
         email: contact.email_c || '',
         phone: contact.phone_c || '',
         company: contact.company_c || '',
-        tags: contact.tags_c ? contact.tags_c.split(',').map(tag => tag.trim()) : [],
+tags: contact.Tags ? contact.Tags.split(',').map(tag => tag.trim()) : [],
         createdAt: contact.created_at_c || contact.CreatedOn || new Date().toISOString(),
         updatedAt: contact.updated_at_c || contact.ModifiedOn || new Date().toISOString()
       };
@@ -97,13 +95,12 @@ class ContactService {
     try {
       // Only include Updateable fields
       const params = {
-        records: [{
+records: [{
           Name: contactData.name || '',
-          name_c: contactData.name || '',
           email_c: contactData.email || '',
           phone_c: contactData.phone || '',
-          company_c: contactData.company || '',
-          tags_c: Array.isArray(contactData.tags) ? contactData.tags.join(',') : (contactData.tags || ''),
+company_c: contactData.company || '',
+          Tags: Array.isArray(contactData.tags) ? contactData.tags.join(',') : (contactData.tags || ''),
           created_at_c: new Date().toISOString(),
           updated_at_c: new Date().toISOString()
         }]
@@ -137,12 +134,12 @@ class ContactService {
         if (successful.length > 0) {
           const newContact = successful[0].data;
           return {
-            ...newContact,
-            name: newContact.name_c || newContact.Name || '',
+...newContact,
+            name: newContact.Name || '',
             email: newContact.email_c || '',
             phone: newContact.phone_c || '',
             company: newContact.company_c || '',
-            tags: newContact.tags_c ? newContact.tags_c.split(',').map(tag => tag.trim()) : [],
+tags: newContact.Tags ? newContact.Tags.split(',').map(tag => tag.trim()) : [],
             createdAt: newContact.created_at_c || newContact.CreatedOn || new Date().toISOString(),
             updatedAt: newContact.updated_at_c || newContact.ModifiedOn || new Date().toISOString()
           };
@@ -160,14 +157,13 @@ class ContactService {
     try {
       // Only include Updateable fields
       const params = {
-        records: [{
+records: [{
           Id: parseInt(id),
           Name: contactData.name || '',
-          name_c: contactData.name || '',
           email_c: contactData.email || '',
           phone_c: contactData.phone || '',
-          company_c: contactData.company || '',
-          tags_c: Array.isArray(contactData.tags) ? contactData.tags.join(',') : (contactData.tags || ''),
+company_c: contactData.company || '',
+          Tags: Array.isArray(contactData.tags) ? contactData.tags.join(',') : (contactData.tags || ''),
           updated_at_c: new Date().toISOString()
         }]
       };
@@ -200,12 +196,12 @@ class ContactService {
         if (successful.length > 0) {
           const updatedContact = successful[0].data;
           return {
-            ...updatedContact,
-            name: updatedContact.name_c || updatedContact.Name || '',
+...updatedContact,
+            name: updatedContact.Name || '',
             email: updatedContact.email_c || '',
             phone: updatedContact.phone_c || '',
             company: updatedContact.company_c || '',
-            tags: updatedContact.tags_c ? updatedContact.tags_c.split(',').map(tag => tag.trim()) : [],
+tags: updatedContact.Tags ? updatedContact.Tags.split(',').map(tag => tag.trim()) : [],
             createdAt: updatedContact.created_at_c || updatedContact.CreatedOn || new Date().toISOString(),
             updatedAt: updatedContact.updated_at_c || updatedContact.ModifiedOn || new Date().toISOString()
           };

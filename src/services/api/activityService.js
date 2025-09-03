@@ -307,5 +307,3 @@ class ActivityService {
 
 const activityService = new ActivityService();
 export default activityService;
-
-export default new ActivityService();
